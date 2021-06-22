@@ -7,14 +7,14 @@ int space_char(char c) {
   if ((c == ' ' || c == '\t') && c != '\0')
     return 1;
   else
-    return 0;
+    return 0; 
 }
 
 int non_space_char(char c) {
-  if (space_char(c))
-    return 0;
-  else
+  if ((c != ' ' && c != '\t') && c != '\0')
     return 1;
+  else
+    return 0;
 }
 
 char *word_start (char *str) {
@@ -28,3 +28,18 @@ char *word_terminator(char *word) {
     word++;
   return word;
 }
+
+int count_words(char *str) {
+  int count = 0;
+  char *temp = str;
+  temp = word_start(temp);
+
+  while (*temp) { //while temp has a true value (non-zero)
+    if (non_space_char(*temp))
+      count++;
+    temp = word_terminator(temp);
+    temp = word_start(temp);
+  }
+  return count;
+}
+
