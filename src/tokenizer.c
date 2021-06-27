@@ -29,6 +29,7 @@ char *word_terminator(char *word) {
   return word;
 }
 
+// error: if sentence ends with a space then an extra word is counted
 int count_words(char *str) {
   int count = 0;
 
@@ -36,8 +37,7 @@ int count_words(char *str) {
     str = word_start(str);
     if (non_space_char(*str))
       count++;
-    str = word_terminator(str);
-    
+    str = word_terminator(str); 
   }
   return count;
 }
@@ -63,7 +63,7 @@ char **tokenize(char *str) {
   char *p = str;  //for incrementing
   int len;
   char **start_address = tokens;
-
+  printf("num words: %d", num_words);
   for (int i = 0; i < num_words; i++) {
     p = word_start(p);
     len = word_length(p);
@@ -83,11 +83,24 @@ void print_tokens(char **tokens) {
   }
 }
 
+
 void free_tokens(char **tokens) {
   while (*tokens) {
     free(*tokens);
     tokens++;
   }
+}
+
+
+int menuOpt(char *str) {
+  if (str[0] == 't')
+    return 1;
+  else if (str[0] == 'h')
+    return 2;
+  else if (str[0] == 'q')
+    return 0;
+  else
+    return 4;
 }
 
 
