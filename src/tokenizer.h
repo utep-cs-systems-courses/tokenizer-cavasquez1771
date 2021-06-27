@@ -46,4 +46,6 @@ void print_tokens(char **tokens);
 /* Frees all tokens and the vector containing themx. */
 void free_tokens(char **tokens);
 
+int menuOpt(char *str);
+
 #endif
