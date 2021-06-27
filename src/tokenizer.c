@@ -63,7 +63,6 @@ char **tokenize(char *str) {
   char *p = str;  //for incrementing
   int len;
   char **start_address = tokens;
-  printf("num words: %d", num_words);
   for (int i = 0; i < num_words; i++) {
     p = word_start(p);
     len = word_length(p);
