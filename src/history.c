@@ -13,9 +13,8 @@ void add_history(List *list, char *str) {
   Item *item_added = (Item*)malloc(sizeof(Item));
   Item *temp = list->root;
   int count = 1;  //count position in the list
-  int len = word_length(str);
 
-  item_added->str = copy_str(str, len);
+  item_added->str = str;
   item_added->next = NULL;
 
   //if its a new list
