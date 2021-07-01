@@ -49,7 +49,7 @@ char *copy_str(char *inStr, short len) {
     copy++;
     inStr++;
   }
-  copy-=len;
+  copy -= len;
   return copy;
 }
 
@@ -59,7 +59,7 @@ int word_length(char *str) {
 
 char **tokenize(char *str) {
   int num_words = count_words(str);
-  char **tokens = malloc(num_words*sizeof(char *));
+  char **tokens = (char**)malloc(num_words*sizeof(char *));
   char *p = str;  //for incrementing
   int len;
   char **start_address = tokens;
